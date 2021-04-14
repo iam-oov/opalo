@@ -137,12 +137,7 @@ class Market(CustomBaseModel):
         max_digits=10, decimal_places=5, blank=True, null=True)
 
     def __str__(self):
-        return f'{str(self.pk)} - {self.fecha}'
-
-    def to_dict(self):
-        return {
-            'hola': self.fecha
-        }
+        return f'{str(self.pk)} - {self.fecha} - {str(self.pk_control)}'
 
 
 class RateGen(CustomBaseModel):
@@ -150,13 +145,18 @@ class RateGen(CustomBaseModel):
         verbose_name = 'Tasa Geb'
         verbose_name_plural = 'Tasas Gen'
 
-    id_historico_tasas_gen = models.CharField(
-        max_length=100,
+    pk_control = models.CharField(
+        max_length=10,
         blank=True,
         null=True,
     )
     fecha = models.DateField(
         verbose_name='Fecha'
+    )
+    id_historico_tasas_gen = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
     )
     tasa = models.DecimalField(
         max_digits=24, decimal_places=16, blank=True, null=True)
@@ -180,31 +180,29 @@ class RateGen(CustomBaseModel):
     )
 
     def __str__(self):
-        return f'{str(self.pk)} - {self.fecha}'
-
-    def to_dict(self):
-        return {
-            'pk': self.pk,
-            'tasa': self.tasa
-        }
+        return '{} - {} - {}'.format(
+            self.pk,
+            self.fecha,
+            self.id_historico_tasas_gen
+        )
 
 
-def create_or_update_market(pk_control, date, **kwargs):
+def create_or_update_obj(model, pk_control, date, **kwargs):
     if pk_control:
-        obj = get_market_pk_control(pk_control)
+        obj = get_obj_by_pk_control(model, pk_control)
         # if object exists: update it
         if obj:
-            obj = update_market(obj, fecha=date, **kwargs)
+            obj = update_obj(obj, fecha=date, **kwargs)
         else:
-            obj = create_market(pk_control, fecha=date, **kwargs)
+            obj = create_obj(model, pk_control, fecha=date, **kwargs)
     else:
         # create direct
-        obj = create_market(pk_control, fecha=date, **kwargs)
+        obj = create_obj(model, pk_control, fecha=date, **kwargs)
     return obj
 
 
-def create_market(pk_control, **kwargs):
-    obj = Market(
+def create_obj(model, pk_control, **kwargs):
+    obj = model(
         pk_control=pk_control,
         fecha=kwargs.get('fecha')
     )
@@ -214,16 +212,16 @@ def create_market(pk_control, **kwargs):
     return obj
 
 
-def update_market(obj, **kwargs):
+def update_obj(obj, **kwargs):
     for key, value in kwargs.items():
         setattr(obj, key, value)
     obj.save()
     return obj
 
 
-def get_market_pk_control(pk_control):
+def get_obj_by_pk_control(model, pk_control):
     try:
-        obj = Market.objects.get(
+        obj = model.objects.get(
             pk_control=pk_control
         )
     except Exception as e:
