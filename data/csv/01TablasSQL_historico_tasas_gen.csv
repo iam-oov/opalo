@@ -1,61 +1,61 @@
-﻿id_historico_tasas_gen,fecha,tasa,nodo,curva,expectativa,precio,duracion
-306127,09/04/21,-3.34,nodo_1,Gen Tesoros inflación,false,,
-307491,09/04/21,-2.84,nodo_2,Gen Tesoros inflación,false,,
-308855,09/04/21,-2.39,nodo_3,Gen Tesoros inflación,false,,
-310219,09/04/21,-1.99,nodo_4,Gen Tesoros inflación,false,,
-311583,09/04/21,-1.64,nodo_5,Gen Tesoros inflación,false,,
-312947,09/04/21,-1.34,nodo_6,Gen Tesoros inflación,false,,
-314311,09/04/21,-1.09,nodo_7,Gen Tesoros inflación,false,,
-315675,09/04/21,-0.89,nodo_8,Gen Tesoros inflación,false,,
-317039,09/04/21,-0.74,nodo_9,Gen Tesoros inflación,false,,
-318403,09/04/21,-0.64,nodo_10,Gen Tesoros inflación,false,,
-320389,09/04/21,-0.195266644,nodo_1,Gen tesoros,false,106.787074,
-320380,09/04/21,0.112473439,nodo_2,Gen tesoros,false,108.54217,
-320388,09/04/21,0.395283374,nodo_3,Gen tesoros,false,110.792613,
-320381,09/04/21,0.65316316,nodo_4,Gen tesoros,false,113.3794051,
-320382,09/04/21,0.886112798,nodo_5,Gen tesoros,false,116.1135717,
-320383,09/04/21,1.094132287,nodo_6,Gen tesoros,false,118.803287,
-320384,09/04/21,1.277221628,nodo_7,Gen tesoros,false,121.2740754,
-320385,09/04/21,1.435380821,nodo_8,Gen tesoros,false,123.3294058,
-320386,09/04/21,1.568609865,nodo_9,Gen tesoros,false,124.8041145,
-320387,09/04/21,1.676908762,nodo_10,Gen tesoros,false,125.6525479,
-306128,10/04/21,-3.34,nodo_1,Gen Tesoros inflación,false,,
-307492,10/04/21,-2.84,nodo_2,Gen Tesoros inflación,false,,
-308856,10/04/21,-2.39,nodo_3,Gen Tesoros inflación,false,,
-310220,10/04/21,-1.99,nodo_4,Gen Tesoros inflación,false,,
-311584,10/04/21,-1.64,nodo_5,Gen Tesoros inflación,false,,
-312948,10/04/21,-1.34,nodo_6,Gen Tesoros inflación,false,,
-314312,10/04/21,-1.09,nodo_7,Gen Tesoros inflación,false,,
-315676,10/04/21,-0.89,nodo_8,Gen Tesoros inflación,false,,
-317040,10/04/21,-0.74,nodo_9,Gen Tesoros inflación,false,,
-318404,10/04/21,-0.64,nodo_10,Gen Tesoros inflación,false,,
-320399,10/04/21,-0.195266644,nodo_1,Gen tesoros,false,106.787074,
-320390,10/04/21,0.112473439,nodo_2,Gen tesoros,false,108.54217,
-320398,10/04/21,0.395283374,nodo_3,Gen tesoros,false,110.792613,
-320391,10/04/21,0.65316316,nodo_4,Gen tesoros,false,113.3794051,
-320392,10/04/21,0.886112798,nodo_5,Gen tesoros,false,116.1135717,
-320393,10/04/21,1.094132287,nodo_6,Gen tesoros,false,118.803287,
-320394,10/04/21,1.277221628,nodo_7,Gen tesoros,false,121.2740754,
-320395,10/04/21,1.435380821,nodo_8,Gen tesoros,false,123.3294058,
-320396,10/04/21,1.568609865,nodo_9,Gen tesoros,false,124.8041145,
-320397,10/04/21,1.676908762,nodo_10,Gen tesoros,false,125.6525479,
-306129,11/04/21,1,nodo_1,Gen Tesoros inflación,true,,
-307493,11/04/21,1,nodo_2,Gen Tesoros inflación,true,,
-308857,11/04/21,1,nodo_3,Gen Tesoros inflación,true,,
-310221,11/04/21,1,nodo_4,Gen Tesoros inflación,true,,
-312949,11/04/21,1,nodo_5,Gen Tesoros inflación,true,,
-314313,11/04/21,1,nodo_6,Gen Tesoros inflación,true,,
-315677,11/04/21,1,nodo_7,Gen Tesoros inflación,true,,
-317041,11/04/21,1,nodo_8,Gen Tesoros inflación,true,,
-318405,11/04/21,1,nodo_9,Gen Tesoros inflación,true,,
-320400,11/04/21,1,nodo_10,Gen Tesoros inflación,true,,
-320401,11/04/21,1,nodo_1,Gen tesoros,true,1,
-320402,11/04/21,1,nodo_2,Gen tesoros,true,1,
-320403,11/04/21,1,nodo_3,Gen tesoros,true,1,
-320404,11/04/21,1,nodo_4,Gen tesoros,true,1,
-320405,11/04/21,1,nodo_5,Gen tesoros,true,1,
-320406,11/04/21,1,nodo_6,Gen tesoros,true,1,
-320407,11/04/21,1,nodo_7,Gen tesoros,true,1,
-320408,11/04/21,1,nodo_8,Gen tesoros,true,1,
-320409,11/04/21,1,nodo_10,Gen tesoros,true,1,
-311585,11/04/21,1,nodo_9,Gen tesoros,true,1,
+﻿id_historico_tasas_gen,fecha,tasa,nodo,curva,expectativa,precio,duracion,pk_control
+306127,2021-04-09,-3.34,nodo_1,Gen Tesoros inflación,FALSE,,,1
+307491,2021-04-09,-2.84,nodo_2,Gen Tesoros inflación,FALSE,,,2
+308855,2021-04-09,-2.39,nodo_3,Gen Tesoros inflación,FALSE,,,3
+310219,2021-04-09,-1.99,nodo_4,Gen Tesoros inflación,FALSE,,,4
+311583,2021-04-09,-1.64,nodo_5,Gen Tesoros inflación,FALSE,,,5
+312947,2021-04-09,-1.34,nodo_6,Gen Tesoros inflación,FALSE,,,6
+314311,2021-04-09,-1.09,nodo_7,Gen Tesoros inflación,FALSE,,,7
+315675,2021-04-09,-0.89,nodo_8,Gen Tesoros inflación,FALSE,,,8
+317039,2021-04-09,-0.74,nodo_9,Gen Tesoros inflación,FALSE,,,9
+318403,2021-04-09,-0.64,nodo_10,Gen Tesoros inflación,FALSE,,,10
+320389,2021-04-09,-0.195266644,nodo_1,Gen tesoros,FALSE,106.787074,,11
+320380,2021-04-09,0.112473439,nodo_2,Gen tesoros,FALSE,108.54217,,12
+320388,2021-04-09,0.395283374,nodo_3,Gen tesoros,FALSE,110.792613,,13
+320381,2021-04-09,0.65316316,nodo_4,Gen tesoros,FALSE,113.3794051,,14
+320382,2021-04-09,0.886112798,nodo_5,Gen tesoros,FALSE,116.1135717,,15
+320383,2021-04-09,1.094132287,nodo_6,Gen tesoros,FALSE,118.803287,,16
+320384,2021-04-09,1.277221628,nodo_7,Gen tesoros,FALSE,121.2740754,,17
+320385,2021-04-09,1.435380821,nodo_8,Gen tesoros,FALSE,123.3294058,,18
+320386,2021-04-09,1.568609865,nodo_9,Gen tesoros,FALSE,124.8041145,,19
+320387,2021-04-09,1.676908762,nodo_10,Gen tesoros,FALSE,125.6525479,,20
+306128,2021-04-10,-3.34,nodo_1,Gen Tesoros inflación,FALSE,,,21
+307492,2021-04-10,-2.84,nodo_2,Gen Tesoros inflación,FALSE,,,22
+308856,2021-04-10,-2.39,nodo_3,Gen Tesoros inflación,FALSE,,,23
+310220,2021-04-10,-1.99,nodo_4,Gen Tesoros inflación,FALSE,,,24
+311584,2021-04-10,-1.64,nodo_5,Gen Tesoros inflación,FALSE,,,25
+312948,2021-04-10,-1.34,nodo_6,Gen Tesoros inflación,FALSE,,,26
+314312,2021-04-10,-1.09,nodo_7,Gen Tesoros inflación,FALSE,,,27
+315676,2021-04-10,-0.89,nodo_8,Gen Tesoros inflación,FALSE,,,28
+317040,2021-04-10,-0.74,nodo_9,Gen Tesoros inflación,FALSE,,,29
+318404,2021-04-10,-0.64,nodo_10,Gen Tesoros inflación,FALSE,,,30
+320399,2021-04-10,-0.195266644,nodo_1,Gen tesoros,FALSE,106.787074,,31
+320390,2021-04-10,0.112473439,nodo_2,Gen tesoros,FALSE,108.54217,,32
+320398,2021-04-10,0.395283374,nodo_3,Gen tesoros,FALSE,110.792613,,33
+320391,2021-04-10,0.65316316,nodo_4,Gen tesoros,FALSE,113.3794051,,34
+320392,2021-04-10,0.886112798,nodo_5,Gen tesoros,FALSE,116.1135717,,35
+320393,2021-04-10,1.094132287,nodo_6,Gen tesoros,FALSE,118.803287,,36
+320394,2021-04-10,1.277221628,nodo_7,Gen tesoros,FALSE,121.2740754,,37
+320395,2021-04-10,1.435380821,nodo_8,Gen tesoros,FALSE,123.3294058,,38
+320396,2021-04-10,1.568609865,nodo_9,Gen tesoros,FALSE,124.8041145,,39
+320397,2021-04-10,1.676908762,nodo_10,Gen tesoros,FALSE,125.6525479,,40
+306129,2021-04-11,1,nodo_1,Gen Tesoros inflación,TRUE,,,41
+307493,2021-04-11,1,nodo_2,Gen Tesoros inflación,TRUE,,,42
+308857,2021-04-11,1,nodo_3,Gen Tesoros inflación,TRUE,,,43
+310221,2021-04-11,1,nodo_4,Gen Tesoros inflación,TRUE,,,44
+312949,2021-04-11,1,nodo_5,Gen Tesoros inflación,TRUE,,,45
+314313,2021-04-11,1,nodo_6,Gen Tesoros inflación,TRUE,,,46
+315677,2021-04-11,1,nodo_7,Gen Tesoros inflación,TRUE,,,47
+317041,2021-04-11,1,nodo_8,Gen Tesoros inflación,TRUE,,,48
+318405,2021-04-11,1,nodo_9,Gen Tesoros inflación,TRUE,,,49
+320400,2021-04-11,1,nodo_10,Gen Tesoros inflación,TRUE,,,50
+320401,2021-04-11,1,nodo_1,Gen tesoros,TRUE,1,,51
+320402,2021-04-11,1,nodo_2,Gen tesoros,TRUE,1,,52
+320403,2021-04-11,1,nodo_3,Gen tesoros,TRUE,1,,53
+320404,2021-04-11,1,nodo_4,Gen tesoros,TRUE,1,,54
+320405,2021-04-11,1,nodo_5,Gen tesoros,TRUE,1,,55
+320406,2021-04-11,1,nodo_6,Gen tesoros,TRUE,1,,56
+320407,2021-04-11,1,nodo_7,Gen tesoros,TRUE,1,,57
+320408,2021-04-11,1,nodo_8,Gen tesoros,TRUE,1,,58
+320409,2021-04-11,1,nodo_10,Gen tesoros,TRUE,1,,59
+311585,2021-04-11,1,nodo_9,Gen tesoros,TRUE,1,,60
