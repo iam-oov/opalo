@@ -11,6 +11,11 @@ class Market(CustomBaseModel):
     fecha = models.DateField(
         verbose_name='Fecha'
     )
+    pk_control = models.CharField(
+        max_length=10,
+        blank=True,
+        null=True,
+    )
     us_2y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     tesoros_3_y = models.DecimalField(
@@ -140,7 +145,7 @@ class Market(CustomBaseModel):
         }
 
 
-class RateGEN(CustomBaseModel):
+class RateGen(CustomBaseModel):
     class Meta:
         verbose_name = 'Tasa Geb'
         verbose_name_plural = 'Tasas Gen'
@@ -182,3 +187,45 @@ class RateGEN(CustomBaseModel):
             'pk': self.pk,
             'tasa': self.tasa
         }
+
+
+def create_or_update_market(pk_control, date, **kwargs):
+    if pk_control:
+        obj = get_market_pk_control(pk_control)
+        # if object exists: update it
+        if obj:
+            obj = update_market(obj, fecha=date, **kwargs)
+        else:
+            obj = create_market(pk_control, fecha=date, **kwargs)
+    else:
+        # create direct
+        obj = create_market(pk_control, fecha=date, **kwargs)
+    return obj
+
+
+def create_market(pk_control, **kwargs):
+    obj = Market(
+        pk_control=pk_control,
+        fecha=kwargs.get('fecha')
+    )
+    for key, value in kwargs.items():
+        setattr(obj, key, value)
+    obj.save()
+    return obj
+
+
+def update_market(obj, **kwargs):
+    for key, value in kwargs.items():
+        setattr(obj, key, value)
+    obj.save()
+    return obj
+
+
+def get_market_pk_control(pk_control):
+    try:
+        obj = Market.objects.get(
+            pk_control=pk_control
+        )
+    except Exception as e:
+        obj = None
+    return obj
