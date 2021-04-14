@@ -20,36 +20,25 @@ from utils import strings
 
 # leer csv
 path_file = os.path.abspath(os.path.join(
-    DJANGO_DIR, '../data/csv/01TablasSQL_historico_tasas_gen.csv'))
+    DJANGO_DIR, '../data/csv/02datos_actualizar_tasas_gen.csv'))
 
 df = pd.read_csv(path_file)
 
 # ======================
 # ====================== TRATAMIENTO DE DATOS
 # ======================
-
-# replace spaces with underscore in names columns
-df.columns = df.columns.str.replace(' ','_')
-
-# lowercase in names columns
-df.columns = df.columns.str.lower()
-
-# rename - the word 'global' conflicts with the reserved words
-df = df.rename({'global': 'global_oh'}, axis=1)
-df = df.replace(to_replace={'[NULL]': 0})
-df = df.fillna(0)
-
+df = strings.clean_dataframe(df)
 
 for row in df.itertuples():
     obj = mod_core.create_or_update_obj(
         mod_core.RateGen,
-        row.pk_control,
+        row.id_historico_tasas_gen,
         row.fecha,
-        id_historico_tasas_gen=row.id_historico_tasas_gen,
-        tasa=strings.convert_float(row.tasa),
+        search_by='id_historico_tasas_gen',
+        tasa=row.tasa,
         nodo=row.nodo,
         curva=row.curva,
-        expectativa=strings.convert_bool(row.expectativa),
-        precio=strings.convert_float(row.precio),
+        expectativa=row.expectativa,
+        precio=row.precio,
         duracion=row.duracion,
     )

@@ -187,17 +187,17 @@ class RateGen(CustomBaseModel):
         )
 
 
-def create_or_update_obj(model, pk_control, date, **kwargs):
-    if pk_control:
-        obj = get_obj_by_pk_control(model, pk_control)
+def create_or_update_obj(model, search_value, date, search_by='pk', **kwargs):
+    if search_value:
+        obj = get_obj(model, search_by, search_value)
         # if object exists: update it
         if obj:
             obj = update_obj(obj, fecha=date, **kwargs)
         else:
-            obj = create_obj(model, pk_control, fecha=date, **kwargs)
+            obj = create_obj(model, search_value, fecha=date, **kwargs)
     else:
         # create direct
-        obj = create_obj(model, pk_control, fecha=date, **kwargs)
+        obj = create_obj(model, search_value, fecha=date, **kwargs)
     return obj
 
 
@@ -219,11 +219,10 @@ def update_obj(obj, **kwargs):
     return obj
 
 
-def get_obj_by_pk_control(model, pk_control):
+def get_obj(model, search_by, search_value):
     try:
-        obj = model.objects.get(
-            pk_control=pk_control
-        )
+        kw = {search_by: search_value}
+        obj = model.objects.get(**kw)
     except Exception as e:
         obj = None
     return obj

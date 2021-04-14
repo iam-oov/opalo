@@ -20,30 +20,21 @@ from utils import strings
 
 # leer csv
 path_file = os.path.abspath(os.path.join(
-    DJANGO_DIR, '../data/csv/01TablasSQL_historico_mercados.csv'))
+    DJANGO_DIR, '../data/csv/02datos_actualizar_historicos_mercado.csv'))
 
 df = pd.read_csv(path_file)
 
 # ======================
 # ====================== TRATAMIENTO DE DATOS
 # ======================
-
-# replace spaces with underscore in names columns
-df.columns = df.columns.str.replace(' ','_')
-
-# lowercase in names columns
-df.columns = df.columns.str.lower()
-
-# rename - the word 'global' conflicts with the reserved words
-df = df.rename({'global': 'global_oh'}, axis=1)
-df = df.replace(to_replace={"[NULL]": 0})
-
+df = strings.clean_dataframe(df)
 
 for row in df.itertuples():
     obj = mod_core.create_or_update_obj(
         mod_core.Market,
-        row.pk_control,
         row.fecha,
+        row.fecha,
+        search_by='fecha',
         us_2y=strings.convert_float(row.us_2y),
         tesoros_3_y=strings.convert_float(row.tesoros_3_y),
         tesoros_5_y=strings.convert_float(row.tesoros_5_y),
@@ -102,6 +93,6 @@ for row in df.itertuples():
         german_treasury_bill_6m=strings.convert_float(row.german_treasury_bill_6m),
         german_government_bills_1_yr=strings.convert_float(row.german_government_bills_1_yr),
         ftse_mib=strings.convert_float(row.ftse_mib),
-        expectativa=strings.convert_bool(row.expectativa.replace('"', '').lower()),
+        expectativa=strings.convert_bool(str(row.expectativa).replace('"', '').lower()),
         liquidez_local=strings.convert_float(row.liquidez_local),
     )

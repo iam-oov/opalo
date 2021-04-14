@@ -12,6 +12,7 @@ class MarketAdmin(admin.ModelAdmin):
 class RateGenAdmin(admin.ModelAdmin):
     list_display = [
         'pk_control',
+        'id_historico_tasas_gen',
         'tasa',
         'nodo',
         'curva',
