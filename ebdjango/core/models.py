@@ -8,7 +8,7 @@ class Market(CustomBaseModel):
         verbose_name = 'Mercado'
         verbose_name_plural = 'Mercados'
 
-    fecha = models.DateTimeField(
+    fecha = models.DateField(
         verbose_name='Fecha'
     )
     us_2y = models.DecimalField(
@@ -150,7 +150,7 @@ class RateGEN(CustomBaseModel):
         blank=True,
         null=True,
     )
-    fecha = models.DateTimeField(
+    fecha = models.DateField(
         verbose_name='Fecha'
     )
     tasa = models.DecimalField(
