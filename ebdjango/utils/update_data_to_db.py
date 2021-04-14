@@ -24,7 +24,7 @@ ml_rategen = ml.MasiveLoader(mod_core.RateGen)
 # # ======================
 # # ======================== (1.1) markets
 path_file = os.path.abspath(os.path.join(
-    DJANGO_DIR, '../data/csv/02datos_actualizar_historicos_mercado.csv'))
+    DJANGO_DIR, '../data/csv/02datos_actualizar_mercado.csv'))
 ml_market.insert_or_update_marker(path_file, 'fecha')
 
 # # ======================== (1.2) rate_gen

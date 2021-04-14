@@ -24,10 +24,10 @@ ml_rategen = ml.MasiveLoader(mod_core.RateGen)
 # # ======================
 # # ======================== (1.1) markets
 path_file = os.path.abspath(os.path.join(
-    DJANGO_DIR, '../data/csv/01TablasSQL_mercados.csv'))
+    DJANGO_DIR, '../data/csv/03_datos_insertar_mercados.csv'))
 ml_market.insert_or_update_marker(path_file, 'pk_control')
 
 # # ======================== (1.2) rate_gen
 path_file = os.path.abspath(os.path.join(
-    DJANGO_DIR, '../data/csv/01TablasSQL_tasas_gen.csv'))
+    DJANGO_DIR, '../data/csv/03_datos_insertar_tasas_gen.csv'))
 ml_rategen.insert_or_update_rate_gen(path_file, 'pk_control')
