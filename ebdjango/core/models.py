@@ -1,7 +1,9 @@
 from django.db import models
 
+from utils.models import CustomBaseModel
 
-class Market(models.Model):
+
+class Market(CustomBaseModel):
     class Meta:
         verbose_name = 'Mercado'
         verbose_name_plural = 'Mercados'
@@ -9,14 +11,16 @@ class Market(models.Model):
     fecha = models.DateTimeField(
         verbose_name='Fecha'
     )
-    us_2y = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    us_2y = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     tesoros_3_y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     tesoros_5_y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     tesoros_7_y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    us_10y = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    us_10y = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     tesoros_30_y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     us_tips_5y = models.DecimalField(
@@ -65,18 +69,24 @@ class Market(models.Model):
         max_digits=10, decimal_places=5, blank=True, null=True)
     chile_cds_usd_sr_5y_d14_corp = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    wti = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    wti = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     laci_index = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     clp_regn_curncy = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     pen_curncy = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    dxy = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
-    euro = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
-    cad = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
-    nok = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
-    rub = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    dxy = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
+    euro = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
+    cad = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
+    nok = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
+    rub = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     mxn_curncy = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     brl_curncy = models.DecimalField(
@@ -85,10 +95,12 @@ class Market(models.Model):
         max_digits=10, decimal_places=5, blank=True, null=True)
     emerging_markets_currency = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    gold = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    gold = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     italy_10y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    italy_2y = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    italy_2y = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     france_10y = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     france_2y = models.DecimalField(
@@ -97,7 +109,8 @@ class Market(models.Model):
         max_digits=10, decimal_places=5, blank=True, null=True)
     us_generic_govt_1_month_yield = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    us_3m = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    us_3m = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     us_generic_govt_6_month_yield = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     us_generic_govt_12_month_yield = models.DecimalField(
@@ -112,7 +125,8 @@ class Market(models.Model):
         max_digits=10, decimal_places=5, blank=True, null=True)
     german_government_bills_1_yr = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    ftse_mib = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    ftse_mib = models.DecimalField(
+        max_digits=10, decimal_places=5, blank=True, null=True)
     expectativa = models.BooleanField(default=False, blank=True, null=True)
     liquidez_local = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
@@ -126,7 +140,7 @@ class Market(models.Model):
         }
 
 
-class RateGEN(models.Model):
+class RateGEN(CustomBaseModel):
     class Meta:
         verbose_name = 'Tasa Geb'
         verbose_name_plural = 'Tasas Gen'
