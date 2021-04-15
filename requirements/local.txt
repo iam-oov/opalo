@@ -1,0 +1,4 @@
+-r ./base.txt
+
+# Code quality
+flake8==3.6.0
