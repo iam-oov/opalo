@@ -1,30 +1,9 @@
-FROM python:3-alpine
+FROM ubuntu
 
-ENV PYTHONUNBUFFERED 1
-
-# RUN apk update \
-#   # psycopg2 dependencies
-#   && apk add --virtual build-deps gcc python3-dev musl-dev \
-#   && apk add postgresql-dev \
-#   # Pillow dependencies
-#   && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
-#   # CFFI dependencies
-#   && apk add libffi-dev py-cffi \
-#   # Translations dependencies
-#   && apk add gettext \
-#   # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
-#   && apk add postgresql-client
-
-RUN apk add --no-cache --update \
-    python3 python3-dev gcc \
-    gfortran musl-dev g++ \
-    libffi-dev openssl-dev \
-    libxml2 libxml2-dev \
-    libxslt libxslt-dev \
-    libjpeg-turbo-dev zlib-dev \
-    #   # psycopg2 dependencies
-    && apk add --virtual build-deps gcc python3-dev musl-dev \
-    && apk add postgresql-dev
+# Updating Ubuntu packages
+RUN apt-get update && yes|apt-get upgrade \
+    && apt-get install -y python3-pip \
+    && apt-get install -y libpq-dev gcc
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
