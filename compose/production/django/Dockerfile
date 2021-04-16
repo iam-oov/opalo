@@ -5,13 +5,12 @@ RUN apt-get update && yes|apt-get upgrade \
     && apt-get install -y python3-pip \
     && apt-get install -y libpq-dev gcc
 
-RUN addgroup django \
-    && adduser -G django django
+RUN groupadd -r django \
+    && adduser django -g django
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
-RUN pip3 install --upgrade pip
-RUN pip3 install --no-cache-dir -r /requirements/production.txt \
+RUN pip install --no-cache-dir -r /requirements/production.txt \
     && rm -rf /requirements
 
 COPY ./compose/production/django/entrypoint /entrypoint
