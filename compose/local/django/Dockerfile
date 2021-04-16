@@ -7,7 +7,7 @@ RUN apt-get update && yes|apt-get upgrade \
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
-RUN pip3 install --upgrade pip setuptools wheel
+RUN pip3 install --upgrade pip
 RUN pip3 install -r /requirements/local.txt
 
 COPY ./compose/production/django/entrypoint /entrypoint
