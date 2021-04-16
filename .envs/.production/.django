@@ -1,0 +1,3 @@
+DJANGO=SECRET_KEY=opalo
+
+DJANGO_ADMIN_URL=admin
