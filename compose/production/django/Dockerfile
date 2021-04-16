@@ -5,8 +5,8 @@ RUN apt-get update && yes|apt-get upgrade \
     && apt-get install -y python3-pip \
     && apt-get install -y libpq-dev gcc
 
-RUN addgroup -S django \
-    && adduser -S -G django django
+RUN addgroup django \
+    && adduser -G django django
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
