@@ -9,3 +9,6 @@ django-rest-framework==0.1.0
 
 # Pandas
 pandas==1.2.4
+
+# Environment
+django-environ==0.4.5
