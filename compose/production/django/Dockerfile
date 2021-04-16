@@ -6,7 +6,7 @@ RUN apt-get update && yes|apt-get upgrade \
     && apt-get install -y libpq-dev gcc
 
 RUN groupadd -r django \
-    && adduser django -g django
+    && useradd django -g django
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
