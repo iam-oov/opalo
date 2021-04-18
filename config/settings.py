@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3
+ROOT_DIR = environ.Path(__file__) - 2
 APPS_DIR = ROOT_DIR.path('ebdjango')
 
 env = environ.Env()
@@ -22,9 +22,10 @@ env = environ.Env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-*c%r#_0!pi7o)d@1++5==b07-*no-6c+*_43ia0!_fw7idg8n)'
+SECRET_KEY = env('DJANGO_SECRET_KEY', default=SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DJANGO_DEBUG', True)
 
 ALLOWED_HOSTS = ['*']
 
@@ -132,11 +133,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    '/app/ebdjango/static'
+    str(APPS_DIR.path('static')),
 ]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

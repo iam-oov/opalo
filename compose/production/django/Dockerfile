@@ -23,12 +23,11 @@ RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 RUN chown django /start
 
+WORKDIR /app
 COPY . /app
 
 RUN chown -R django /app
 
 USER django
-
-WORKDIR /app
 
 ENTRYPOINT ["/entrypoint"]

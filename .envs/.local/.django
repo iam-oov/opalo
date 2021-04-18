@@ -1,2 +1,5 @@
+# Django
+DJANGO_APPS_DIR=ebdjango
+
 # Redis
 REDIS_URL=redis://redis:6379/0
