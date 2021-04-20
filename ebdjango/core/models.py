@@ -187,6 +187,15 @@ class RateGen(CustomBaseModel):
         )
 
 
+class MasiveLoad(CustomBaseModel):
+    file = models.FileField(upload_to="masive-files")
+
+    def __str__(self):
+        return '{}'.format(
+            self.pk,
+        )
+
+
 def create_or_update_obj(model, search_value, date, search_by='pk', **kwargs):
     if search_value:
         obj = get_obj(model, search_by, search_value)
@@ -225,4 +234,10 @@ def get_obj(model, search_by, search_value):
         obj = model.objects.get(**kw)
     except Exception as e:
         obj = None
+    return obj
+
+
+def create_file_obj(file):
+    obj = MasiveLoad(file=file)
+    obj.save()
     return obj

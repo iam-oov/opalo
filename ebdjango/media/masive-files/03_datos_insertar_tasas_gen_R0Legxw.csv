@@ -1,0 +1,21 @@
+﻿id_historico_tasas_gen,fecha,tasa,nodo,curva,expectativa,precio,duracion,pk_control
+,2021-04-12,0.11,nodo_1,Gen Tesoros inflación,TRUE,,,63
+,2021-04-12,0.12,nodo_2,Gen Tesoros inflación,TRUE,,,64
+,2021-04-12,0.13,nodo_3,Gen Tesoros inflación,TRUE,,,65
+,2021-04-12,0.14,nodo_4,Gen Tesoros inflación,TRUE,,,66
+,2021-04-12,0.16,nodo_6,Gen Tesoros inflación,TRUE,,,67
+,2021-04-12,0.17,nodo_7,Gen Tesoros inflación,TRUE,,,68
+,2021-04-12,0.18,nodo_8,Gen Tesoros inflación,TRUE,,,69
+,2021-04-12,0.19,nodo_9,Gen Tesoros inflación,TRUE,,,70
+,2021-04-12,0.2,nodo_10,Gen Tesoros inflación,TRUE,,,71
+,2021-04-12,0.32,nodo_2,Gen tesoros,TRUE,102,,72
+,2021-04-12,0.34,nodo_4,Gen tesoros,TRUE,104,,73
+,2021-04-12,0.35,nodo_5,Gen tesoros,TRUE,105,,74
+,2021-04-12,0.36,nodo_6,Gen tesoros,TRUE,106,,75
+,2021-04-12,0.37,nodo_7,Gen tesoros,TRUE,107,,76
+,2021-04-12,0.38,nodo_8,Gen tesoros,TRUE,108,,77
+,2021-04-12,0.39,nodo_9,Gen tesoros,TRUE,109,,78
+,2021-04-12,0.4,nodo_10,Gen tesoros,TRUE,110,,79
+,2021-04-12,0.33,nodo_3,Gen tesoros,TRUE,103,,80
+,2021-04-12,0.31,nodo_1,Gen tesoros,TRUE,101,,81
+,2021-04-12,0.15,nodo_5,Gen Tesoros inflación,TRUE,,,82

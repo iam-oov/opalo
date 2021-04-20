@@ -1,0 +1,141 @@
+
+<link rel="icon" type="image/gif" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/google/274/robot_1f916.png">
+<title>Opalo 🔥 | Carga masiva </title>
+
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+<style type="text/css">
+    body {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 40vw;
+    }
+
+    .card-body {
+        text-align: start;
+    }
+</style>
+
+<body>
+    <form id='form-masive-load' enctype="multipart/form-data">
+        <h2 class="mb-3">
+            🔥 👾 👾 🔥
+        </h2>
+        <h2 class="mb-5">
+            Carga masiva para crear/alterar <br>
+            registros en la db
+        </h2>
+        <div class="mb-3">
+          <input 
+            id="file-csv"
+            class="form-control"
+            type="file"
+            required
+        >
+        </div>
+
+        <div class="mb-3">
+            <select 
+                id="select-table"
+                class="form-control"
+                aria-label="select tabla"
+                required
+            >
+              <option value="" selected>Selecciona la tabla...</option>
+              <option value="mercado">Mercado</option>
+              <option value="tasagen">Tasa Gen</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+          <input id="umbral" type="text" class="form-control" placeholder="(Opcional) Columna 'umbral' por el cual actualizar">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+
+        <div id="text-response"></div>
+
+        <div>
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                (Tip) Como usar el campo umbral
+            </button>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <span>
+                    🔥 El campo umbral representa una columna en el csv <br>
+                    que contenga puros datos unicos. <br>
+                    🔥 Por default la columna umbral es: <b>pk_control</b> <br>
+                    🔥 El algortimo leera el valor de esa columna y <br>
+                    si lo llega a encontrar lo actualizara, si no, lo creara.<br>
+                    🔥 Esto para evitar el duplicado de registros en la db. <br>
+                    <hr>
+                    🔥 En caso de no existir la columna <b>pk_control</b> dentro del csv se puede utilizar:<br>
+                    👉 Para "tasas gen" la columna: <b><i>id_historico_tasas_gen</i></b><br>
+                    👉 Para "mercado" la columna: <b><i>fecha</i></b>
+                </span>
+              </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $('#form-masive-load').submit(async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        // Attach file
+        formData.append('fileCsv', $('#file-csv')[0].files[0]);
+        formData.append('table', $('#select-table').val());
+        formData.append('umbral', $('#umbral').val());
+
+        const response = await fetch(
+            '/api/v1/carga-masiva/',
+            {
+               method: 'POST',
+               body: formData,
+               contentType: false,
+               processData: false,
+            }
+        )
+
+        const data = await response.json();
+
+        let component;
+        if (!data.error) {
+            component = `
+                <div id="alert-response" class="alert alert-success" role="alert">
+                  <p class="mb-0">
+                    ¡Bien hecho! Todo a salido perfecto 🤩
+                  </p>
+                </div>`;
+        } else {
+            component = `
+                <div id="alert-response" class="alert alert-danger" role="alert">
+                    <p class="mb-2">¡Santo guacamole!</p>
+                    <p class="mb-0">${data.error}</p>
+                </div>`;
+        }
+
+        $('#text-response').html(component);
+        const $myAlertSuccess = document.getElementById('alert-response')
+        const bsAlert = new bootstrap.Alert($myAlertSuccess)
+        
+        setTimeout(function(){ bsAlert.close() }, 5000);
+
+    });
+</script>

@@ -1,13 +1,19 @@
 from django.core.wsgi import get_wsgi_application
 import os
 import sys
+import environ
 
 # root django
-DJANGO_DIR = os.path.abspath(os.path.join(__file__, '../..'))
+DJANGO_DIR = os.path.abspath(os.path.join(__file__, '../../..'))
+print(DJANGO_DIR)
+# ROOT_DIR = environ.Path(__file__) - 3
+# APPS_DIR = ROOT_DIR.path('ebdjango')
+
+# print(APPS_DIR)
 
 # django route
 sys.path.append(DJANGO_DIR)
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ebdjango.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 application = get_wsgi_application()
 
 # # ======================

@@ -20,3 +20,7 @@ class RateGenAdmin(admin.ModelAdmin):
         'precio',
         'duracion',
     ]
+
+@admin.register(mod_core.MasiveLoad)
+class MasiveLoadAdmin(admin.ModelAdmin):
+    pass
