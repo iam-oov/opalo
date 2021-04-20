@@ -20,6 +20,10 @@ con 4 bloques de 25 registros cada uno. Asi el perfomance no se ve afectado. Por
 
 API en postman: https://www.getpostman.com/collections/2450e93c4845691181a2
 
+Link al proyecto (instancia ec2 de AWS): [seco-dev.com][link al dominio]
+
+Admin del proyecto: [seco-dev.com/admin][link al dominio admin] ------ {user: opalo, password: opalo123}
+
 La api esta estructura de la siguiente forma:
 
 ```bash
@@ -165,3 +169,5 @@ Reto de programacion con uso de dataframes, la soluccion esta en:
 ```py
 python prueba2/main.py
 ```
+[link al dominio]: https://seco-dev.com/
+[link al dominio admin]: https://seco-dev.com/admin
