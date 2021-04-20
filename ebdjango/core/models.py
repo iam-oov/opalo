@@ -48,7 +48,7 @@ class Market(CustomBaseModel):
         max_digits=10, decimal_places=5, blank=True, null=True)
     deuda_internacional_d_soberanos = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
-    deuda_internacional_d_crédito = models.DecimalField(
+    deuda_internacional_d_credito = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
     d_intl_soberanos = models.DecimalField(
         max_digits=10, decimal_places=5, blank=True, null=True)
