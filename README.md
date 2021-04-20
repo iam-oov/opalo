@@ -1,8 +1,6 @@
 # Opalo Pruebas
 
-Este repositorio esta enfocado a la resolver la prueba de selección, de una 
-forma profeccional, rapida y bonita. Siempre teniendo las buenas practicas de autopep8
-y una buena arquitectura en los archivos.
+Este repositorio está enfocado a resolver la prueba de selección, de una forma profesional, rápida y bonita. Siempre teniendo las buenas prácticas de autopep8 y una buena arquitectura en los archivos.
 
 ## Requisitos
 - docker
@@ -11,12 +9,13 @@ y una buena arquitectura en los archivos.
 ## Las reglas
 Uno de puntos a resolver en el reto era crear un crud para dos tablas, una de ellas llamada
 "tasas_gen" y la otra "mercados". 
-La forma en que se resolvio este punto fue usar a "django-rest-framework" que serializara
+La forma en que se resolvió este punto fue usar a "django-rest-framework" que serializara
 los modelos y expusiera la api de ambas tablas. Esta api se combino con la clase 
 Paginator de django para no saturar el response con miles de datos, lo que permite regresar
-bloques que se iran recorriendo como si fueran paginas de un libro.
-Por ejemplo: la base de datos tiene 100 registros, si se usa limit=25, se creara un paginator
-con 4 bloques de 25 registros cada uno. Asi el perfomance no se ve afectado. Por default el limit es 15 (se puede cambiar a mas o menos dependiendo cual sea el requerimiento).
+bloques que se irán recorriendo como si fueran páginas de un libro.
+Por ejemplo: la base de datos tiene 100 registros, si se usa limit=25, se creará un paginator con 4 bloques de 25 registros cada uno. 
+Así el performance no se ve afectado. Por default el limit es 15 (se puede cambiar a mas o menos dependiendo cual sea el requerimiento).
+
 
 API en postman: https://www.getpostman.com/collections/2450e93c4845691181a2
 
@@ -24,7 +23,7 @@ Link al proyecto (instancia ec2 de AWS): [seco-dev.com][link al dominio]
 
 Admin del proyecto: [seco-dev.com/admin][link al dominio admin] ------ {user: opalo, password: opalo123}
 
-La api esta estructura de la siguiente forma:
+La api está estructurada de la siguiente forma:
 
 ```bash
 - [GET] {{host}}/api/v1/mercados/ => Regresa todos los registros en la base de datos
@@ -40,9 +39,8 @@ Una variante a los GET anteriores es usar la variable limit:
 - [GET] {{host}}/api/v1/tasas-gen/?limit=60 => Regresa bloques de 60 registros cada uno
 ```
 
-Los siguientes endpoints reciben los mismos parametros de entrada y el unico campo obligatorio
-para crear un registro es la "fecha". Todos los demas son opcionales y se setearan en "null"
-como dato inicial.
+Los siguientes endpoints reciben los mismos parámetros de entrada y el único campo obligatorio para crear un registro es la "fecha". 
+Todos los demás son opcionales y se setearan en "null" como dato inicial.
 
 
 ```bash
@@ -134,11 +132,12 @@ Response:
 }
 ```
 
-Como adicional se creo un endpoint en la raiz del proyecto que permite hacer "cargas masivas". 
+Como adicional se creó un endpoint en la raíz del proyecto que permite hacer "cargas masivas". 
 Es un formulario en html, con poco css y jquery para que el usuario ingrese un archivo csv, la tabla donde se 
-guardara la informacion y un campo opcional llamado "campo umbral".
-El objetivo de este enpoint es que el usuario pueda agregar/modificar grandes cantidades 
+guardará la información y un campo opcional llamado "campo umbral".
+El objetivo de este endpoint es que el usuario pueda agregar/modificar grandes cantidades 
 de registros sin necesidad de ir uno por uno usando la api.
+
 
 
 ## Uso
@@ -149,22 +148,23 @@ Al ser un proyecto "dockerizado" basta con ejecutar el comando:
 docker-compose -f local.yml up --build
 ```
 
-Esto inicializara todos los servicios correspondientes y abrira a django
-en el puerto 8002. Puerto en el cual se podra jugar con la api y el "cargado masivo".
+Esto inicializa todos los servicios correspondientes y abrirá a django
+en el puerto 8002. Puerto en el cual se podrá jugar con la api y el "cargado masivo".
+
 
 ### Producción
 
 Se tiene que contar con un dominio propio porque se tiene que configurar los DNS
 para que dos registros de tipo A (www y *) apunten a la ip publica del servidor.
 
-Y despues de tener los registros creados basta con correr:
+Y después de tener los registros creados basta con correr:
 
 ``` bash
 docker-compose -f production.yml up --build
 ```
 
 ## Reto #2
-Reto de programacion con uso de dataframes, la soluccion esta en:
+Reto de programación con uso de dataframes, la solución está en:
 
 ```py
 python prueba2/main.py
