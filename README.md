@@ -149,7 +149,8 @@ docker-compose -f local.yml up --build
 ```
 
 Esto inicializa todos los servicios correspondientes y abrirá a django
-en el puerto 8002. Puerto en el cual se podrá jugar con la api y el "cargado masivo".
+en el puerto 8002 en el cual se podrá jugar con la api y el "cargado masivo". Para hacer un cargado masivo
+sin problemas recomiendo usar los csv que estan en data/csv ya que estos ya estan tratados.
 
 
 ### Producción
